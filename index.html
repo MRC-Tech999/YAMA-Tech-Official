@@ -31,7 +31,11 @@
     h1 {
       font-size: 3em;
       margin-bottom: 10px;
-      color: #ff4444;
+      background: linear-gradient(270deg, #ff4444, #ff8800, #44ff88, #44aaff);
+      background-size: 800% 800%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradient 6s ease infinite;
     }
 
     p {
@@ -40,21 +44,29 @@
     }
 
     .btn {
-      background: #ff4444;
+      background: linear-gradient(270deg, #ff4444, #ff8800, #44ff88, #44aaff);
+      background-size: 800% 800%;
       color: white;
       padding: 15px 30px;
       text-decoration: none;
       font-weight: bold;
       border-radius: 10px;
       transition: 0.3s;
+      animation: gradient 5s ease infinite;
     }
 
     .btn:hover {
-      background: #ff8800;
+      transform: scale(1.05);
     }
 
     audio {
       display: none;
+    }
+
+    @keyframes gradient {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
     }
   </style>
 </head>
@@ -64,7 +76,6 @@
   <source src="https://files.catbox.moe/v4fn1y.mp4" type="video/mp4">
 </video>
 
-<!-- AUDIO -->
 <audio id="sound" loop>
   <source src="https://files.catbox.moe/v4fn1y.mp4" type="audio/mp4">
 </audio>
@@ -75,7 +86,6 @@
   <a href="page2.html" class="btn">Voir les outils</a>
 </div>
 
-<!-- Script pour jouer le son après clic utilisateur -->
 <script>
   const audio = document.getElementById('sound');
   document.addEventListener('click', () => {
