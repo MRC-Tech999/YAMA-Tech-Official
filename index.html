@@ -1,33 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>YAMA TECH — Bots & Tools</title>
   <style>
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: 'Segoe UI', sans-serif;
       background-color: #0d0d0d;
       color: #f5f5f5;
+      overflow-x: hidden;
+    }
+
+    /* Fond vidéo */
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      object-fit: cover;
+      filter: brightness(0.25);
+    }
+
+    /* Overlay contenu */
+    .overlay {
+      position: relative;
+      z-index: 2;
     }
 
     header {
-      background-color: #1a1a1a;
       text-align: center;
-      border-bottom: 2px solid #444;
-      padding-bottom: 20px;
+      padding: 40px 20px;
+      background: linear-gradient(90deg, #ff4444, #ff8800, #ff4444);
+      background-size: 300% 300%;
+      animation: gradientMove 6s ease infinite;
+      color: white;
     }
 
-    header img {
-      max-width: 100%;
-      height: auto;
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     header h1 {
-      font-size: 2.5em;
-      color: #ff4444;
-      margin-top: 10px;
+      font-size: 2.8em;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
     }
 
     .section {
@@ -39,22 +69,8 @@
     h2 {
       color: #ff4444;
       border-bottom: 1px solid #ff4444;
+      margin-bottom: 15px;
       padding-bottom: 5px;
-    }
-
-    .links a {
-      display: inline-block;
-      margin: 15px 10px;
-      padding: 15px 25px;
-      background-color: #ff4444;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: background 0.3s;
-    }
-
-    .links a:hover {
-      background-color: #cc0000;
     }
 
     .features {
@@ -69,64 +85,120 @@
 
     .cta {
       text-align: center;
-      margin-top: 40px;
+      margin: 30px 0 20px;
       font-size: 1.2em;
+    }
+
+    .links {
+      text-align: center;
+    }
+
+    .links a {
+      display: inline-block;
+      margin: 10px 15px;
+      padding: 12px 22px;
+      background: linear-gradient(90deg, #ff4444, #ff8800);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: transform 0.2s;
+    }
+
+    .links a:hover {
+      transform: scale(1.05);
     }
 
     footer {
       text-align: center;
-      padding: 30px;
+      padding: 30px 20px;
       background-color: #111;
       border-top: 1px solid #444;
+      margin-top: 40px;
+    }
+
+    /* Audio invisible */
+    audio {
+      display: none;
     }
   </style>
 </head>
 <body>
 
-<header>
-  
-  <h1>⚔️ YAMA TECH ⚔️</h1>
-  <p>The world of WhatsApp bots, tools, scripts & cybersecurity</p>
-</header>
+<!-- FOND VIDÉO -->
+<video autoplay muted loop id="bg-video">
+  <source src="https://files.catbox.moe/v4fn1y.mp4" type="video/mp4" />
+</video>
 
-<div class="section">
-  <h2>Welcome to YAMA TECH</h2>
-  <p>
-    Step into a world where powerful WhatsApp bots, private tools, and cybersecurity scripts rule. 
-    Whether you're a beginner or a pro, you’ll find something to level up your game.
-  </p>
-</div>
+<!-- AUDIO SONORE EN BOUCLE -->
+<audio id="bg-audio" autoplay loop>
+  <source src="https://files.catbox.moe/v4fn1y.mp4" type="audio/mp4" />
+  Your browser does not support the audio tag.
+</audio>
 
-<div class="section">
-  <h2>What You'll Get</h2>
-  <ul class="features">
-    <li>🔓 Premium Tools & Secure Cracking</li>
-    <li>🤖 Custom Bots (Bug Bots, Auto Bots, Anti-Raid)</li>
-    <li>⌨️ Programming from Basic to Advanced</li>
-    <li>🛰 Free Internet Tricks / Network Bypass Tools</li>
-    <li>🐚 Hacking Scripts + Termux Tools</li>
-    <li>☎️ Virtual Numbers for Testing & Anonymity</li>
-    <li>🧩 Free & Premium Panels, Web Tools & APIs</li>
-    <li>🔥 Latest Tech Drops & Insider Updates</li>
-    <li>🧠 AI Automation Tools & Smart Integrations</li>
-    <li>🧑‍💻 Ethical Hacking & Cybersecurity Tutorials</li>
-  </ul>
-</div>
+<!-- Astuce pour forcer l'autoplay avec son -->
+<script>
+  document.addEventListener('click', function () {
+    const audio = document.getElementById('bg-audio');
+    if (audio.paused) {
+      audio.play();
+    }
+  });
+</script>
 
-<div class="section">
-  <h2>Join the Community</h2>
-  <div class="cta">
-    Don’t miss out — join the official <strong>YAMA TECH Channel</strong> and our <strong>Support Group</strong> now!
+<!-- CONTENU -->
+<div class="overlay">
+  <header>
+    <h1>⚔️ YAMA TECH ⚔️</h1>
+    <p>The world of WhatsApp bots, tools, scripts & cybersecurity</p>
+  </header>
+
+  <div class="section">
+    <h2>Welcome to YAMA TECH</h2>
+    <p>
+      Step into a world where powerful WhatsApp bots, private tools, and cybersecurity scripts rule. 
+      Whether you're a beginner or a pro, you’ll find something to level up your game.
+    </p>
   </div>
-  <div class="links">
-    <a href="https://whatsapp.com/channel/0029Vb6J7O684Om8DdNfvL2N/104" target="_blank">Join Channel</a>
-    <a href="https://chat.whatsapp.com/FtsIMqFSZIL7W1hspvSP13" target="_blank">Join Support Group</a>
-  </div>
-</div>
 
-<footer>
-  <p>© 2025 YAMA TECH. All rights reserved.</p>
-</footer>
+  <div class="section">
+    <h2>What You'll Get</h2>
+    <ul class="features">
+      <li>🔓 Premium Tools & Secure Cracking</li>
+      <li>🤖 Custom Bots (Bug Bots, Auto Bots, Anti-Raid)</li>
+      <li>⌨️ Programming from Basic to Advanced</li>
+      <li>🛰 Free Internet Tricks / Network Bypass Tools</li>
+      <li>🐚 Hacking Scripts + Termux Tools</li>
+      <li>☎️ Virtual Numbers for Testing & Anonymity</li>
+      <li>🧩 Free & Premium Panels, Web Tools & APIs</li>
+      <li>🔥 Latest Tech Drops & Insider Updates</li>
+      <li>🧠 AI Automation Tools & Smart Integrations</li>
+      <li>🧑‍💻 Ethical Hacking & Cybersecurity Tutorials</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Join the Community</h2>
+    <p class="cta">Don’t miss out — join the official <strong>YAMA TECH Channel</strong> and our <strong>Support Group</strong> now!</p>
+    <div class="links">
+      <a href="https://whatsapp.com/channel/0029Vb6J7O684Om8DdNfvL2N/104" target="_blank">WhatsApp Channel</a>
+      <a href="https://chat.whatsapp.com/FtsIMqFSZIL7W1hspvSP13" target="_blank">Support Group</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Follow Me</h2>
+    <p class="cta">Stay connected for new tools, drops and updates!</p>
+    <div class="links">
+      <a href="https://instagram.com/j.m.h.2024" target="_blank">Instagram</a>
+      <a href="https://whatsapp.com/channel/0029Vb6J7O684Om8DdNfvL2N/104" target="_blank">WhatsApp Channel</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 YAMA TECH. All rights reserved.</p>
+  </footer>
+</div>
 
 </body>
 </html>
