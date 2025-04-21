@@ -7,93 +7,106 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Segoe UI', monospace;
       background-color: #000;
-      color: #fff;
+      color: #00ff00;
       overflow: hidden;
-    }
-
-    #video-bg {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      z-index: -1;
-      filter: brightness(0.25);
     }
 
     .container {
       text-align: center;
       padding-top: 100px;
+      z-index: 1;
+      position: relative;
     }
 
     h1 {
-      font-size: 3em;
-      margin-bottom: 10px;
-      background: linear-gradient(270deg, #ff4444, #ff8800, #44ff88, #44aaff);
+      font-size: 3.5em;
+      margin-bottom: 20px;
+      background: linear-gradient(270deg, #00ff00, #00ffff, #ffffff, #00ff00);
       background-size: 800% 800%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: gradient 6s ease infinite;
+      animation: hackerGradient 6s ease infinite, glitch 1s infinite;
+      text-shadow: 0 0 5px #00ff00;
     }
 
     p {
-      font-size: 1.2em;
+      font-size: 1.4em;
       margin-bottom: 30px;
+      color: #00ff99;
+      animation: fadeIn 2s ease-in;
     }
 
-    .btn {
-      background: linear-gradient(270deg, #ff4444, #ff8800, #44ff88, #44aaff);
+    .btn, .panel-btn {
+      display: inline-block;
+      background: linear-gradient(270deg, #00ff00, #00ffff, #ffffff, #00ff00);
       background-size: 800% 800%;
-      color: white;
+      color: black;
       padding: 15px 30px;
       text-decoration: none;
       font-weight: bold;
       border-radius: 10px;
       transition: 0.3s;
-      animation: gradient 5s ease infinite;
+      animation: hackerGradient 5s ease infinite;
+      box-shadow: 0 0 10px #00ff00;
+      margin: 10px;
     }
 
-    .btn:hover {
+    .btn:hover, .panel-btn:hover {
       transform: scale(1.05);
+      box-shadow: 0 0 20px #00ff00;
     }
 
-    audio {
-      display: none;
-    }
-
-    @keyframes gradient {
+    @keyframes hackerGradient {
       0% {background-position: 0% 50%;}
       50% {background-position: 100% 50%;}
       100% {background-position: 0% 50%;}
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes glitch {
+      0% {text-shadow: 2px 0 red;}
+      20% {text-shadow: -2px 0 cyan;}
+      40% {text-shadow: 2px 0 lime;}
+      60% {text-shadow: -2px 0 magenta;}
+      80% {text-shadow: 2px 0 yellow;}
+      100% {text-shadow: 0 0 5px #00ff00;}
+    }
+
+    .description {
+      max-width: 600px;
+      margin: 0 auto;
+      color: #00ffaa;
+      font-size: 1.1em;
+      line-height: 1.6em;
+      border-left: 3px solid #00ff00;
+      padding-left: 20px;
+      margin-top: 40px;
+      text-align: left;
     }
   </style>
 </head>
 <body>
 
-<video id="video-bg" autoplay muted loop>
-  <source src="https://files.catbox.moe/v4fn1y.mp4" type="video/mp4">
-</video>
-
-<audio id="sound" loop>
-  <source src="https://files.catbox.moe/v4fn1y.mp4" type="audio/mp4">
-</audio>
-
 <div class="container">
-  <h1>Bienvenue sur YAMA TECH</h1>
-  <p>Explore bots, tools, hacking scripts & more</p>
-  <a href="page2.html" class="btn">Voir les outils</a>
-</div>
+  <h1>YAMA TECH INTERFACE</h1>
+  <p>Access tools, scripts & elite-level bot systems</p>
+  
+  <a href="#" class="btn">ENTER THE SYSTEM</a>
+  <a href="https://marc.mazxa.com" target="_blank" class="panel-btn">ACCESS PANEL</a>
 
-<script>
-  const audio = document.getElementById('sound');
-  document.addEventListener('click', () => {
-    if (audio.paused) {
-      audio.play();
-    }
-  });
-</script>
+  <div class="description">
+    Welcome to the control panel of <strong>YAMA TECH</strong> — an elite virtual environment for powerful automation, advanced scraping, 
+    bot management, and system override simulation. Dive into a library of tools ranging from WhatsApp bot frameworks to real-time 
+    monitoring scripts. Engage with encrypted channels, unlock developer shortcuts, and harness control over systems through 
+    interactive simulations. Whether you're experimenting or managing operations — you are now in command.
+  </div>
+</div>
 
 </body>
 </html>
