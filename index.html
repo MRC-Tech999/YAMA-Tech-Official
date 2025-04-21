@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>YAMA TECH — Accueil</title>
   <style>
     body {
@@ -10,14 +10,14 @@
       font-family: 'Segoe UI', monospace;
       background-color: #000;
       color: #00ff00;
-      overflow: hidden;
+      overflow-x: hidden;
     }
 
     .container {
       text-align: center;
       padding-top: 100px;
-      z-index: 1;
       position: relative;
+      z-index: 2;
     }
 
     h1 {
@@ -58,6 +58,17 @@
       box-shadow: 0 0 20px #00ff00;
     }
 
+    .description {
+      max-width: 800px;
+      margin: 40px auto 0;
+      color: #00ffaa;
+      font-size: 1.1em;
+      line-height: 1.6em;
+      border-left: 3px solid #00ff00;
+      padding-left: 20px;
+      text-align: left;
+    }
+
     @keyframes hackerGradient {
       0% {background-position: 0% 50%;}
       50% {background-position: 100% 50%;}
@@ -78,35 +89,50 @@
       100% {text-shadow: 0 0 5px #00ff00;}
     }
 
-    .description {
-      max-width: 600px;
-      margin: 0 auto;
-      color: #00ffaa;
-      font-size: 1.1em;
-      line-height: 1.6em;
-      border-left: 3px solid #00ff00;
-      padding-left: 20px;
-      margin-top: 40px;
-      text-align: left;
+    #video-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(0.1);
     }
   </style>
 </head>
 <body>
 
-<div class="container">
-  <h1>YAMA TECH INTERFACE</h1>
-  <p>Access tools, scripts & elite-level bot systems</p>
-  
-  <a href="#" class="btn">ENTER THE SYSTEM</a>
-  <a href="https://marc.mazxa.com" target="_blank" class="panel-btn">ACCESS PANEL</a>
+  <!-- Background Video (facultatif, à activer si tu veux un fond animé) -->
+  <!-- <video autoplay muted loop id="video-bg">
+    <source src="your-background.mp4" type="video/mp4" />
+  </video> -->
 
-  <div class="description">
-    Welcome to the control panel of <strong>YAMA TECH</strong> — an elite virtual environment for powerful automation, advanced scraping, 
-    bot management, and system override simulation. Dive into a library of tools ranging from WhatsApp bot frameworks to real-time 
-    monitoring scripts. Engage with encrypted channels, unlock developer shortcuts, and harness control over systems through 
-    interactive simulations. Whether you're experimenting or managing operations — you are now in command.
+  <div class="container">
+    <h1>YAMA TECH INTERFACE</h1>
+    <p>Advanced Bot System, Cyber Tools & Hacking Simulation Panel</p>
+
+    <a href="#" class="btn">ENTER THE SYSTEM</a>
+    <a href="https://marc.mazxa.com" target="_blank" class="panel-btn">ACCESS PANEL</a>
+
+    <div class="description">
+      <strong>Welcome to YAMA TECH</strong> — a high-performance interface designed for developers, automation enthusiasts, and tech-savvy agents. 
+      Our environment hosts a wide array of tools: real-time bot control systems, advanced scrapers, anonymous communication relays, auto-downloaders, 
+      encrypted command modules and much more.<br><br>
+
+      Experience live interaction with WhatsApp bots powered by Baileys, access TikTok, YouTube, Instagram & Facebook auto-download systems, 
+      and deploy hacking simulations for educational and ethical cybersecurity testing.<br><br>
+
+      <strong>Features include:</strong><br>
+      - WhatsApp Bot Connection via Pair Code<br>
+      - Anti-Call Protection & Kick Commands<br>
+      - .tagall, .readstatus, .kickall in one touch<br>
+      - Encrypted Session Generator & Deployment<br>
+      - Hacker-themed user interface with glitch effects<br><br>
+
+      Created by <strong>EMPEROR SUKUNA</strong>, this platform is your digital battlefield.<br>
+      <em>“You are now inside the system — take control.”</em>
+    </div>
   </div>
-</div>
 
 </body>
 </html>
