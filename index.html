@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>YAMA TECH — Accueil</title>
+  <title>YAMA TECH — Interface</title>
   <style>
     body {
       margin: 0;
@@ -11,73 +11,80 @@
       background-color: #000;
       color: #00ff00;
       overflow-x: hidden;
+      transition: background 1s ease;
     }
 
     .container {
       text-align: center;
-      padding-top: 100px;
-      position: relative;
-      z-index: 2;
+      padding: 80px 20px;
+      min-height: 100vh;
+      display: none;
+    }
+
+    .active {
+      display: block;
     }
 
     h1 {
-      font-size: 3.5em;
+      font-size: 3em;
       margin-bottom: 20px;
+      animation: glitch 1s infinite;
       background: linear-gradient(270deg, #00ff00, #00ffff, #ffffff, #00ff00);
       background-size: 800% 800%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: hackerGradient 6s ease infinite, glitch 1s infinite;
-      text-shadow: 0 0 5px #00ff00;
     }
 
-    p {
-      font-size: 1.4em;
-      margin-bottom: 30px;
-      color: #00ff99;
-      animation: fadeIn 2s ease-in;
-    }
-
-    .btn, .panel-btn {
-      display: inline-block;
-      background: linear-gradient(270deg, #00ff00, #00ffff, #ffffff, #00ff00);
-      background-size: 800% 800%;
-      color: black;
+    .btn {
+      background: linear-gradient(270deg, #00ff00, #00ffff);
+      background-size: 400% 400%;
       padding: 15px 30px;
-      text-decoration: none;
+      color: black;
       font-weight: bold;
-      border-radius: 10px;
-      transition: 0.3s;
-      animation: hackerGradient 5s ease infinite;
-      box-shadow: 0 0 10px #00ff00;
+      border-radius: 8px;
       margin: 10px;
+      text-decoration: none;
+      transition: 0.3s;
+      box-shadow: 0 0 10px #00ff00;
+      display: inline-block;
     }
 
-    .btn:hover, .panel-btn:hover {
+    .btn:hover {
       transform: scale(1.05);
       box-shadow: 0 0 20px #00ff00;
     }
 
-    .description {
-      max-width: 800px;
-      margin: 40px auto 0;
-      color: #00ffaa;
-      font-size: 1.1em;
-      line-height: 1.6em;
-      border-left: 3px solid #00ff00;
-      padding-left: 20px;
+    .tool-list {
       text-align: left;
+      max-width: 800px;
+      margin: 30px auto;
+      font-size: 1.1em;
+      color: #00ffaa;
     }
 
-    @keyframes hackerGradient {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
+    .tool-list li {
+      margin-bottom: 8px;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    .support-buttons {
+      margin-top: 30px;
+    }
+
+    .support-buttons a {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 25px;
+      background: #6a00ff;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 0 10px #6a00ff;
+      transition: transform 0.3s;
+    }
+
+    .support-buttons a:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #9c2eff;
     }
 
     @keyframes glitch {
@@ -88,51 +95,69 @@
       80% {text-shadow: 2px 0 yellow;}
       100% {text-shadow: 0 0 5px #00ff00;}
     }
-
-    #video-bg {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      z-index: -1;
-      filter: brightness(0.1);
-    }
   </style>
 </head>
 <body>
 
-  <!-- Background Video (facultatif, à activer si tu veux un fond animé) -->
-  <!-- <video autoplay muted loop id="video-bg">
-    <source src="your-background.mp4" type="video/mp4" />
-  </video> -->
-
-  <div class="container">
-    <h1>YAMA TECH INTERFACE</h1>
+  <!-- PAGE 1 : ACCUEIL -->
+  <div class="container active" id="page1" style="background-color: #000;">
+    <h1 id="mainTitle">YAMA TECH INTERFACE</h1>
     <p>Advanced Bot System, Cyber Tools & Hacking Simulation Panel</p>
-
-    <a href="#" class="btn">ENTER THE SYSTEM</a>
-    <a href="https://marc.mazxa.com" target="_blank" class="panel-btn">ACCESS PANEL</a>
-
-    <div class="description">
-      <strong>Welcome to YAMA TECH</strong> — a high-performance interface designed for developers, automation enthusiasts, and tech-savvy agents. 
-      Our environment hosts a wide array of tools: real-time bot control systems, advanced scrapers, anonymous communication relays, auto-downloaders, 
-      encrypted command modules and much more.<br><br>
-
-      Experience live interaction with WhatsApp bots powered by Baileys, access TikTok, YouTube, Instagram & Facebook auto-download systems, 
-      and deploy hacking simulations for educational and ethical cybersecurity testing.<br><br>
-
-      <strong>Features include:</strong><br>
-      - WhatsApp Bot Connection via Pair Code<br>
-      - Anti-Call Protection & Kick Commands<br>
-      - .tagall, .readstatus, .kickall in one touch<br>
-      - Encrypted Session Generator & Deployment<br>
-      - Hacker-themed user interface with glitch effects<br><br>
-
-      Created by <strong>EMPEROR SUKUNA</strong>, this platform is your digital battlefield.<br>
-      <em>“You are now inside the system — take control.”</em>
-    </div>
+    <a href="#" class="btn" onclick="goToPage(2)">CONTINUER</a>
   </div>
 
+  <!-- PAGE 2 : OUTILS -->
+  <div class="container" id="page2" style="background-color: #001f2f;">
+    <h1 id="mainTitle2">Hack Tools Panel</h1>
+    <p>Voici la liste complète des outils disponibles :</p>
+    <ul class="tool-list">
+      <li>💥 SMS HACK</li>
+      <li>📡 WIFI HACK</li>
+      <li>😉 TERMUX FULL COURSE</li>
+      <li>✅ COMPLETE ANDROID PRACTICAL HACKING COURSE</li>
+      <li>🎭 PHISHING ATTACK</li>
+      <li>👀 INSTA BAN TRICK</li>
+      <li>🖤 FAKE NUMBER TRICK</li>
+      <li>🦠 Virus Tools</li>
+      <li>📕 Hacking Books</li>
+      <li>🐉 Install Kali Linux on Android</li>
+      <li>🤡 Python & Java</li>
+      <li>🔥 PUBG/BGMI HACK COURSE</li>
+      <li>🎮 INSTA HACK TRICK</li>
+      <li>🔹 Cyber Security Course</li>
+      <li>🎭 Black Hat Hacking Course</li>
+      <li>✅ All-in-one Website V1 & V2</li>
+      <li>✅ Free RDP, Temp Mails, Bombers</li>
+    </ul>
+    <a href="#" class="btn" onclick="goToPage(3)">SUIVANT</a>
+    <a href="#" class="btn" onclick="goToPage(1)">RETOUR</a>
+  </div>
+
+  <!-- PAGE 3 : SUPPORT -->
+  <div class="container" id="page3" style="background-color: #1a001a;">
+    <h1 id="mainTitle3">Support & Accès</h1>
+    <p>Besoin d'aide ou de lien direct ? Rejoins-nous :</p>
+    <div class="support-buttons">
+      <a href="https://whatsapp.com/channel/0029Vb6J7O684Om8DdNfvL2N" target="_blank">Chaîne WhatsApp</a>
+      <a href="https://instagram.com/j.m.h.2024" target="_blank">Instagram</a>
+    </div>
+    <a href="#" class="btn" onclick="goToPage(1)">Retour à l'accueil</a>
+  </div>
+
+  <!-- SCRIPT JS -->
+  <script>
+    function goToPage(pageNumber) {
+      document.querySelectorAll('.container').forEach(c => c.classList.remove('active'));
+      document.getElementById('page' + pageNumber).classList.add('active');
+
+      // Animation sur le titre à chaque changement
+      const title = document.querySelector('#page' + pageNumber + ' h1');
+      title.style.animation = 'none';
+      void title.offsetWidth; // reset animation
+      title.style.animation = 'glitch 1s infinite';
+    }
+  </script>
+
 </body>
-</html>
+                                                       </html>
+  
